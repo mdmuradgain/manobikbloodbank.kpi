@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manbik Blood Bank</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="shortcut icon" href="img/logo-demo.jpg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style/search.css" class="css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header_part">
+        <div class="logo">
+            <img src="img/Untitled-6.png" alt="Logo" width="100" />
+        </div>
+        <nav class="menu" id="menu">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="login.html" class="login_btn">Login</a>
+          <a href="register.html" class="registration_btn">Register</a>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+          <span>&#9776;</span>
+        </div>
+      </div>
+    </header>
+    <div class="slider">
+      <div class="slides">
+        <div class="slide fade">
+          <img src="img/Banner (1).jpg" alt="Slide 1" />
+        </div>
+        <div class="slide fade">
+          <img src="img/Banner (2).jpg" alt="Slide 2" />
+        </div>
+        <div class="slide fade">
+          <img src="img/Banner (3).jpg" alt="Slide 3" />
+        </div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div class="container_blood">
+      <h1>Blood Group Search</h1>
+      <form>
+          <div class="form-group">
+              <label for="division">Division:</label>
+              <select id="division" name="division">
+                  <option value="">Select Division</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="district">District:</label>
+              <select id="district" name="district">
+                  <option value="">Select District</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="upozila">Upazila:</label>
+              <select id="upozila" name="upozila">
+                  <option value="">Select Upazila</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="bloodGroup">Blood Group:</label>
+              <select id="bloodGroup" name="bloodGroup">
+                  <option value="">Select Blood Group</option>
+                  <option value="a+">A+</option>
+                  <option value="a-">A-</option>
+                  <option value="b+">B+</option>
+                  <option value="b-">B-</option>
+                  <option value="ab+">AB+</option>
+                  <option value="ab-">AB-</option>
+                  <option value="o+">O+</option>
+                  <option value="o-">O-</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <button type="submit">Search</button>
+          </div>
+      </form>
+  </div>
+
+  <div class="container_search">
+    <h1>Blood Donor List</h1>
+    <div class="export-buttons">
+        <button id="pdfExport">Export to PDF</button>
+        <button id="excelExport">Export to Excel</button>
+    </div>
+    <table id="donorTable">
+        <thead>
+            <tr>
+                <th>SL No</th>
+                <th>Name</th>
+                <th>Division</th>
+                <th>District</th>
+                <th>Upazila</th>
+                <th>Blood Group</th>
+                <th>Number</th>
+                <th>Date of Last <br> Blood Donation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated by JavaScript -->
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button id="prevPage">Previous</button>
+        <button id="nextPage">Next</button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+<script src="js/search.js"></script>
+
+      <div class="container_blood_list">
+        <h2>Blood Donation List</h2>
+        <div class="donor-grid">
+          <div class="donor-card">
+            <img src="img/IMG_8171.jpg" alt="Donor Photo">
+            <div class="donor-details">
+              <h4>Md. Murad Hossain</h4>
+              <p><span>School/College:</span> Manarat International University</p>
+              <p><span>District:</span> Satkhira</p>
+              <p><span>Blood Group:</span> O+</p>
+              <p><span>Last Donation Date:</span> <span class="last-donation-date">2023-07-01</span></p>
+              <p><span>Next Donation Possible After:</span> <span class="days-left"></span> days</p>
+            </div>
+          </div>
+    
+          <!-- Add 5 more donor cards as per your requirement -->
+          <div class="donor-card">
+            <img src="img/IMG_8171.jpg" alt="Donor Photo">
+            <div class="donor-details">
+              <h4>John Doe</h4>
+              <p><span>School/College:</span> XYZ College</p>
+              <p><span>District:</span> Dhaka</p>
+              <p><span>Blood Group:</span> A+</p>
+              <p><span>Last Donation Date:</span> <span class="last-donation-date">2023-06-15</span></p>
+              <p><span>Next Donation Possible After:</span> <span class="days-left"></span> days</p>
+            </div>
+          </div>
+    
+          <div class="donor-card">
+            <img src="img/IMG_8171.jpg" alt="Donor Photo">
+            <div class="donor-details">
+              <h4>Jane Smith</h4>
+              <p><span>School/College:</span> ABC University</p>
+              <p><span>District:</span> Chittagong</p>
+              <p><span>Blood Group:</span> B-</p>
+              <p><span>Last Donation Date:</span> <span class="last-donation-date">2023-05-20</span></p>
+              <p><span>Next Donation Possible After:</span> <span class="days-left"></span> days</p>
+            </div>
+          </div>
+    
+          <div class="donor-card">
+            <img src="img/IMG_8171.jpg" alt="Donor Photo">
+            <div class="donor-details">
+              <h4>Mark Spencer</h4>
+              <p><span>School/College:</span> DEF School</p>
+              <p><span>District:</span> Khulna</p>
+              <p><span>Blood Group:</span> AB+</p>
+              <p><span>Last Donation Date:</span> <span class="last-donation-date">2023-07-10</span></p>
+              <p><span>Next Donation Possible After:</span> <span class="days-left"></span> days</p>
+            </div>
+          </div>
+    
+          <div class="donor-card">
+            <img src="img/IMG_8171.jpg" alt="Donor Photo">
+            <div class="donor-details">
+              <h4>Alice Lee</h4>
+              <p><span>School/College:</span> GHI School</p>
+              <p><span>District:</span> Sylhet</p>
+              <p><span>Blood Group:</span> O-</p>
+              <p><span>Last Donation Date:</span> <span class="last-donation-date">2023-06-01</span></p>
+              <p><span>Next Donation Possible After:</span> <span class="days-left"></span> days</p>
+            </div>
+          </div>
+    
+          <div class="donor-card">
+            <img src="img/IMG_8171.jpg" alt="Donor Photo">
+            <div class="donor-details">
+              <h4>Bob Marley</h4>
+              <p><span>School/College:</span> JKL University</p>
+              <p><span>District:</span> Rajshahi</p>
+              <p><span>Blood Group:</span> B+</p>
+              <p><span>Last Donation Date:</span> <span class="last-donation-date">2023-07-25</span></p>
+              <p><span>Next Donation Possible After:</span> <span class="days-left"></span> days</p>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+        <!-- Scroll to Top Button -->
+        <button id="scrollTopBtn" title="Go to top">Top</button>
+
+       <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright">
+        © 2024-2025 মানবিক ব্লাড ব্যাংক || All Rights Reserved.
+      </div>
+
+      <div class="developer">
+        Developed & Maintained by <a href="https://www.webget.com" target="_blank">WebGet</a>
+      </div>
+
+      <div class="social-media">
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

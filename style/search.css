@@ -1,0 +1,96 @@
+.container_search {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+th {
+    background-color: #f2f2f2;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5cb85c;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.pagination button:hover {
+    background-color: #4cae4c;
+}
+.export-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.export-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.export-buttons button:hover {
+    background-color: #0056b3;
+}
+@media screen and (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+    td:before {
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+    td:nth-of-type(1):before { content: "SL No"; }
+    td:nth-of-type(2):before { content: "Name"; }
+    td:nth-of-type(3):before { content: "Division"; }
+    td:nth-of-type(4):before { content: "District"; }
+    td:nth-of-type(5):before { content: "Upazila"; }
+    td:nth-of-type(6):before { content: "Blood Group"; }
+    td:nth-of-type(7):before { content: "Number"; }
+    td:nth-of-type(8):before { content: "Date of last blood donation"; }
+}
